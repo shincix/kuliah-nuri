@@ -1,0 +1,6 @@
+buat desain antarmuka yang berbasiskan pada aplikasi desktop, web atau mobile.
+- analisa kebutuhan dari segi :
+	- pengguna / user
+	- penggunaan object-object
+	- warna
+	- dll
