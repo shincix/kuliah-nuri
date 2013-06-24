@@ -1,0 +1,1 @@
+E:\xampp\php\php.exe E:\xampp\htdocs\sispak\framework\yiic webapp analis
