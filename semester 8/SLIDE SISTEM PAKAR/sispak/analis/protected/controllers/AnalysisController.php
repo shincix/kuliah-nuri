@@ -34,12 +34,15 @@ class AnalysisController extends Controller {
         if (isset($_POST['answer'])) {
             if ($_POST['answer'] == 1) {
 //                Yii::app()->session['result'] = TbQuestion::model()->findByPk($_POST['id_quetion']);
-                 Yii::app()->session['result'] = array(
-                     'res'=>Yii::app()->session['result']['res'] . '' . $_POST['id_quetion'] . ',',
-                 );
+                Yii::app()->session['result'] = array(
+                    'res' => Yii::app()->session['result']['res'] . '' . $_POST['id_quetion'] . ',',
+                );
             }
-            if(Yii::app()->session['resultinfo']['no'] == Yii::app()->session['resultinfo']['total']){
-                $this->redirect('result');
+            if (Yii::app()->session['resultinfo']['no'] == Yii::app()->session['resultinfo']['total']) {
+                Yii::app()->session['trial']->save();
+                $this->redirect('result',array(
+                    'id'=>Yii::app()->session['trial']->id_trial
+                ));
             }
 //            var_dump(Yii::app()->session['resultinfo']) or die();
             Yii::app()->session['resultinfo'] = array(
@@ -55,10 +58,10 @@ class AnalysisController extends Controller {
                 'id_quetion' => '',
             );
         }
-        
-        if(Yii::app()->session['result'] == NULL){
+
+        if (Yii::app()->session['result'] == NULL) {
             Yii::app()->session['result'] = array(
-                'res'=>'',
+                'res' => '',
             );
         }
 
@@ -75,12 +78,9 @@ class AnalysisController extends Controller {
             Yii::app()->end();
         }
     }
-    
+
     public function actionResult() {
-        Yii::app()->session['trial']->save();
-        unset(Yii::app()->session['result']);
-        unset(Yii::app()->session['resultinfo']);
-        unset(Yii::app()->session['trial']);
+        
     }
 
 }
