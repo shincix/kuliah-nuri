@@ -11,6 +11,9 @@
             text-decoration: none;display: inline-block;margin-right: 34px;"><a href="<?php print $this->createUrl('/analysis/index'); ?>">Home</a></li>
         <li style="list-style: none;color: rgb(69, 97, 213);
             font-weight: bold;
-            text-decoration: none;display: inline-block"><a href="<?php print $this->createUrl('/analysis/about'); ?>">Tentang kami</a></li>
+            text-decoration: none;display: inline-block;margin-right: 34px;"><a href="<?php print $this->createUrl('/analysis/about'); ?>">Tentang kami</a></li>
+         <li style="list-style: none;color: rgb(69, 97, 213);
+            font-weight: bold;
+            text-decoration: none;display: inline-block;"><a href="<?php print $this->createUrl('/admin'); ?>">Login Admin</a></li>
     </ul>
 </div>
