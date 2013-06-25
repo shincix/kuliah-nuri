@@ -150,5 +150,11 @@ class TbTrial extends CActiveRecord {
         $this->date_created = date('Y-m-d');
         return TRUE;
     }
+    
+    public function destroyTest(){
+        unset(Yii::app()->session['result']);
+        unset(Yii::app()->session['resultinfo']);
+        unset(Yii::app()->session['trial']);
+    }
 
 }
