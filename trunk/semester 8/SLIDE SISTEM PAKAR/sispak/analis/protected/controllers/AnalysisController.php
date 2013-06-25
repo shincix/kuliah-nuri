@@ -39,10 +39,14 @@ class AnalysisController extends Controller {
                 );
             }
             if (Yii::app()->session['resultinfo']['no'] == Yii::app()->session['resultinfo']['total']) {
-                Yii::app()->session['trial']->save();
-                $this->redirect('result',array(
-                    'id'=>Yii::app()->session['trial']->id_trial
-                ));
+                $mTrial = Yii::app()->session['trial'];
+                $mTrial->results = TbQuestion::model()->result();
+                $mTrial->save();
+                $mTrial->destroyTest();
+//                var_dump('lewat') or die();
+                $this->redirect($this->createUrl('result',array(
+                    'id'=>$mTrial->id_trial,
+                )));
             }
 //            var_dump(Yii::app()->session['resultinfo']) or die();
             Yii::app()->session['resultinfo'] = array(
@@ -79,8 +83,22 @@ class AnalysisController extends Controller {
         }
     }
 
-    public function actionResult() {
-        
+    public function actionResult($id) {
+        $model = $this->loadModel($id);
+        $this->render('result',array(
+            'model'=>$model,
+        ));
+    }
+    
+    public function actionAbout() {
+        $this->render('about');
+    }
+    
+    public function loadModel($id) {
+        $model = TbTrial::model()->findByPk($id);
+        if ($model === null)
+            throw new CHttpException(404, 'The requested page does not exist.');
+        return $model;
     }
 
 }

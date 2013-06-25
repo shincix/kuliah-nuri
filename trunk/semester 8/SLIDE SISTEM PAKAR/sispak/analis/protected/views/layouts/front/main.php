@@ -20,11 +20,27 @@
     </head>
 
     <body>
+        <style>
+            html {
+                background: url(<?php echo Yii::app()->request->baseUrl; ?>/images/baby-and-mom.jpg) no-repeat center center fixed;
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
+                -o-background-size: cover;
+                background-size: cover;
+            }
+            body{
+                background: transparent;
+            }
 
-        <div class="container" id="page">
+            #page {
+                background: transparent;
+            }
+        </style>
+
+        <div class="container" id="page" align="center">
 
             <?php echo $content; ?>
-
+            <?php include_once 'footer.php'; ?>
             <div class="clear"></div>
 
         </div><!-- page -->

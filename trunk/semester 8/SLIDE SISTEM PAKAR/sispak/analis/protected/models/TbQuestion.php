@@ -102,12 +102,21 @@ class TbQuestion extends CActiveRecord {
         if (Yii::app()->session['resultinfo'] != NULL) {
             $id = substr(Yii::app()->session['resultinfo']['id_quetion'], 0, -1);
             if ($id != '') {
-                return 'id_quetion NOT IN (' . $id . ')'.'for_age = :for_age';
+                return 'id_quetion NOT IN (' . $id . ')' . 'for_age = :for_age';
             } else {
                 return 'for_age = :for_age';
             }
         } else {
             return 'for_age = :for_age';
+        }
+    }
+
+    public function result() {
+        $problem = explode(',', substr(Yii::app()->session['result']['res'], 0, -1));
+        if (count($problem) == 0) {
+            return Yii::app()->controller->renderPartial('/analysis/anak-sehat', array(), TRUE);
+        } else {
+            return Yii::app()->controller->renderPartial('/analysis/anak-sehat-saran', array(), TRUE);
         }
     }
 
