@@ -47,11 +47,9 @@ CREATE TABLE `tb_trial` (
   `results` text,
   `date_created` datetime DEFAULT NULL,
   PRIMARY KEY (`id_trial`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `tb_trial` */
-
-insert  into `tb_trial`(`id_trial`,`nama_anak`,`tanggal_lahir`,`umur`,`nama_ibu`,`alamat_rumah`,`no_handphone`,`results`,`date_created`) values (1,'bola','2011-03-02',2,'dsds','','',NULL,'2013-06-25 00:00:00');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
