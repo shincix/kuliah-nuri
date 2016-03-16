@@ -1,0 +1,1 @@
+Agar bisa dikerjakan dimana aja
